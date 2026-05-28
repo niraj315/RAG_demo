@@ -31,7 +31,7 @@ def chunk_text(text : str, chunk_size : int = CHUNK_SIZE,overlap_size: int = OVE
     start = 0
     while(start < len(text)):
         end = start + chunk_size
-        chunk = text[start:end].strip()
+        chunk = text[start:end].strip() #Chunk created here.
         if chunk :
             chunks.append(chunk)
         start += chunk_size - overlap_size
