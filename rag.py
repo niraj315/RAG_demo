@@ -77,7 +77,7 @@ def ask(question:str) -> dict:
 
     if not chunks:
         return {
-            "answer":"No relevent document found in database",
+            "answer":"No relevent document found i  n database",
             "source": [],
         }
     prompt = build_prompt(question,chunks)

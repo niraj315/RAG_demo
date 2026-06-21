@@ -14,7 +14,7 @@ EMBED_MODEL = "all-MiniLM-L6-v2"
 CHUNK_SIZE = 500
 OVERLAP_SIZE = 50
 
-# Extracting text data from pdf
+# 1.Extracting text data from pdf
 def extract_text_from_pdf(pdf_path: str) ->str:
     """Extract all texts from pdf file"""
     doc = fitz.open(pdf_path)
@@ -24,14 +24,14 @@ def extract_text_from_pdf(pdf_path: str) ->str:
     doc.close()
     return full_text
 
-# Chunking Extracted data
+# 2.Chunking Extracted data
 def chunk_text(text : str, chunk_size : int = CHUNK_SIZE,overlap_size: int = OVERLAP_SIZE) -> list[str]:
     """Split chunks into overlapping chunks"""
     chunks =[]
     start = 0
     while(start < len(text)):
         end = start + chunk_size
-        chunk = text[start:end].strip() #Chunk created here.
+        chunk = text[start:end].strip() #Chunks created here.
         if chunk :
             chunks.append(chunk)
         start += chunk_size - overlap_size
